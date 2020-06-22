@@ -1,0 +1,23 @@
+.navbar {
+  padding: .9375rem 0;
+  justify-content: space-between;
+}
+
+span {
+  line-height: 1;
+  font-size: 24px;
+  color: white;
+  padding: .5rem; 
+}
+
+.links {
+  line-height: 1;
+  font-size: 18px;
+  color: white;
+  padding-right: .9375rem;
+  
+}
+
+.links:hover {
+  text-decoration: none;
+}

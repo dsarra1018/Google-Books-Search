@@ -9,12 +9,13 @@ function Search(props) {
         <label htmlFor="book_input" form="book-search">Book:</label>
         
         <br></br>
-        <span>
-          <input type="text" name="book_input" id="book_input" form="book-search" onChange={(e) => props.handleChange(e)} placeholder="Enter a book title"/>
-        </span>
+        <input type="text" name="book_input" id="book_input" form="book-search" onChange={(e) => props.handleChange(e)} placeholder="Enter a book title" required/>
         
         <br></br>
-        <button type="submit" className="submit-btn" onClick={(e) => props.handleSearchClick(e)}>Search</button>
+        <button type="submit" className="submit-btn float-right" onClick={(e) => props.handleSearchClick(e)}>Search</button>
+
+        <br></br>
+        <hr></hr>
       </form>
     </div>
   );

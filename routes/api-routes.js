@@ -14,7 +14,7 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/books", (req, res) => {
+  app.post("/search", (req, res) => {
     let title = req.body.title.replace(/\s/g, "+");
     axios.get(
       `https://www.googleapis.com/books/v1/volumes?q=${title}&key=${process.env.KEY}`

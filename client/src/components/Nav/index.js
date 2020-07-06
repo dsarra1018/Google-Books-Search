@@ -4,7 +4,7 @@ import "./style.css";
 
 function Nav() {
   return(
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <span>Google Books</span>
 
       <div className="nav-items">

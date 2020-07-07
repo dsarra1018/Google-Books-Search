@@ -1,7 +1,8 @@
 import React from "react";
+import List from "../components/List";
+import API from "../utils/API";
 import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
 
 class Saved extends React.Component {
   constructor(props) {
@@ -21,11 +22,12 @@ class Saved extends React.Component {
 
   render() {
     return(
-      <div>
+      <main>
         <Nav />
         <Jumbotron />
-      </div>
-    )};
+        <List savedBooks={this.state.savedBooks} path={this.props.match.path}/>
+      </main>
+    )}
 }
 
 export default Saved;

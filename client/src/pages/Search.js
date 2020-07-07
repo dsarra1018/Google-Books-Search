@@ -1,8 +1,9 @@
 import React from "react";
+import SearchForm from "../components/Form";
+import List from "../components/List";
+import API from "../utils/API";
 import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
-import SearchForm from "../components/Form";
-import API from "../utils/API";
 
 class Search extends React.Component {
   constructor(props) {
@@ -15,27 +16,31 @@ class Search extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     e.preventDefault();
     this.setState({book_input: e.target.value})
   }
-
-  handleSearchClick(e) {
+ 
+  handleSearchClick = (e) => {
     e.preventDefault();
-    API.getBooks(this.state.book_input)
-      .then(res => {
-        this.setState({bookData: res.data});
-        this.setState({book_input: ""});
+    API.searchBooks(this.state.book_input)
+      .then(
+        (res) => {
+          this.setState({bookData: res.data});
+          this.setState({book_input: ""});
       });
   }
+  
   render() {
     return(
-      <div>
-        <Nav />
-        <Jumbotron />
-        <SearchForm handleChange={this.handleChange} handleSearchClick={this.handleSearchClick} />
-      </div>
-    );
+        <main>
+          <Nav />
+          <Jumbotron />
+          <SearchForm handleChange={this.handleChange} handleSearchClick={this.handleSearchClick} />
+          {(this.state.bookData.length > 0)?
+            <List bookData={this.state.bookData} path={this.props.match.path}/> : null}
+        </main>
+    )
   }
 }
 
